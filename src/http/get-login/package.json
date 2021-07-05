@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@architect/functions": "^3.14.1",
+    "tiny-json-http": "^7.3.0"
+  }
+}

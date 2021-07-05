@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@architect/functions": "^3.14.1",
+    "@begin/data": "^2.0.1",
+    "enhance": "github:kristoferjoseph/enhance"
+  }
+}
