@@ -1,20 +1,20 @@
-const render = require('enhance')
-const templatePath = '@architect/views/templates'
+const arc = require('@architect/functions')
+exports.handler = arc.http.async(index)
 
-exports.handler = async function http (req) {
-  return {
-    statusCode: 200,
-    headers: {
-      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
-      'content-type': 'text/html; charset=utf8'
-    },
-    body: render(`
-<main-page></main-page>
-    `,
-      {},
-      {
-        templatePath
-      }
-    )
+async function index(req) {
+  const { session={} } = req
+  const { account={} } = session
+  const { id: accountId } = account
+
+  if (accountId) {
+    return {
+      statusCode: 302,
+      location: '/todos'
+    }
+  } else {
+    return {
+      statusCode: 302,
+      location: '/login'
+    }
   }
 }

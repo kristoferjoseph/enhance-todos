@@ -1,10 +1,13 @@
 require = require('esm')(module) // eslint-disable-line
-const render = require('enhance')
-const arc = require('@architect/functions')
+const Enhance = require('@begin/enhance').default
+const { http, static } = require('@architect/functions')
 const data = require('@begin/data')
-const templatePath = '@architect/views/templates'
+const html = Enhance({
+  templates: '@architect/views/templates',
+  modules: '_static/components'
+})
 
-exports.handler = arc.http.async(listTodos)
+exports.handler = http.async(listTodos)
 
 async function listTodos(req) {
   const session = req.session || {}
@@ -22,7 +25,12 @@ async function listTodos(req) {
     for await (let todo of pages) {
       todos.push(todo)
     }
-    todos.sort((a, b) => a - b)
+    todos.sort((a, b) => (a.created < b.created)
+      ? -1
+      : (a.created > b.created)
+        ? 1
+        : 0
+    )
 
     return {
       statusCode: 200,
@@ -30,10 +38,7 @@ async function listTodos(req) {
         'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
         'content-type': 'text/html; charset=utf8'
       },
-      body: render(`
-<todos-page todos=${todos}></todos-page>
-    `,{},
-      templatePath)
+      body: html`<todos-page todos=${todos}></todos-page>`
     }
   }
   else {

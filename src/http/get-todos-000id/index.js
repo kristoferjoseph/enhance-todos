@@ -1,7 +1,10 @@
+require = require('esm')(module) // eslint-disable-line
 const arc = require('@architect/functions')
 const data = require('@begin/data')
-const render = require('enhance')
-const templatePath = '@architect/views/templates'
+const Enhance = require('@begin/enhance').default
+const html = Enhance({
+  templates: '@architect/views/templates'
+})
 
 exports.handler = arc.http.async(readTodo)
 
@@ -40,14 +43,12 @@ async function readTodo(req) {
     }
   }
 
-  // TODO: add edit to todo page attributes
-  body = `TODO: ${todoId}`
   return {
     statusCode: 200,
     headers: {
       'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
       'content-type': 'text/html; charset=utf8'
     },
-    body
+    body: html`TODO: ${todoId}`
   }
 }

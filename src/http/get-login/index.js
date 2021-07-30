@@ -1,29 +1,22 @@
+require = require('esm')(module) // eslint-disable-line
 const arc = require('@architect/functions')
-const github = require('./github')
+const clientID = process.env.GITHUB_CLIENT_ID
+const redirectURL = process.env.GITHUB_REDIRECT
+const href = `https://github.com/login/oauth/authorize?client_id=${clientID}&redirect_url=${redirectURL}`
+const Enhance = require('@begin/enhance').default
+const html = Enhance({
+  templates: '@architect/views/templates'
+})
 
 exports.handler = arc.http.async(login)
 
-async function login(req) {
-  let { query: { code } } = req
-  if (code) {
-    try {
-      let account = await github(req)
-      return {
-        session: { account },
-        location: '/'
-      }
-    }
-    catch(err) {
-      return {
-        statusCode: err.code,
-        body: err.message
-      }
-    }
-  }
-  else {
-    return {
-      location: '/'
-    }
+async function login() {
+  return {
+    statusCode: 200,
+    headers: {
+      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
+      'content-type': 'text/html; charset=utf8'
+    },
+    body: html`<login-page href="${href}"></login-page>`
   }
 }
-

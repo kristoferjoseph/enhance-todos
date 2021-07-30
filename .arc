@@ -7,6 +7,7 @@ spa false
 
 @http
 get /
+get /auth
 get /login
 get /todos          # list
 get /todos/:id      # read
