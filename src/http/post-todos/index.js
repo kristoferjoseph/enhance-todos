@@ -12,6 +12,7 @@ async function createTodo(req) {
   todo.created = new Date().toISOString()
   todo.title = sanitize(todo.title)
   todo.text = sanitize(todo.text)
+  console.log('CREATE: ', todo)
 
   if (accountId) {
     let table = `todos-${accountId}`

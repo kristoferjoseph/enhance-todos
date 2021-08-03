@@ -23,6 +23,7 @@ async function listTodos(req) {
 
     let todos = []
     for await (let todo of pages) {
+      delete todo.table
       todos.push(todo)
     }
     todos.sort((a, b) => (a.created < b.created)
@@ -31,6 +32,7 @@ async function listTodos(req) {
         ? 1
         : 0
     )
+    const body = html`<todos-page todos=${todos}></todos-page>`
 
     return {
       statusCode: 200,
@@ -38,7 +40,7 @@ async function listTodos(req) {
         'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
         'content-type': 'text/html; charset=utf8'
       },
-      body: html`<todos-page todos=${todos}></todos-page>`
+      body
     }
   }
   else {

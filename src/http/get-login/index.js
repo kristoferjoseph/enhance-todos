@@ -5,7 +5,8 @@ const redirectURL = process.env.GITHUB_REDIRECT
 const href = `https://github.com/login/oauth/authorize?client_id=${clientID}&redirect_url=${redirectURL}`
 const Enhance = require('@begin/enhance').default
 const html = Enhance({
-  templates: '@architect/views/templates'
+  templates: '@architect/views/templates',
+  modules: '_static/components'
 })
 
 exports.handler = arc.http.async(login)

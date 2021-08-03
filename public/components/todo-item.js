@@ -1,7 +1,6 @@
 class TodoItem extends HTMLElement {
   constructor() {
     super()
-    this.title = ''
   }
 
   connectedCallback() {
@@ -24,7 +23,9 @@ class TodoItem extends HTMLElement {
 
   static template() {
     return (state={}) => `
-<todo-item title=${state.title || ''}></todo-item>
+<todo-item
+  text=${state.text || ''}
+></todo-item>
   `
   }
 
