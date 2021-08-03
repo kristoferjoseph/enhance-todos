@@ -13,7 +13,6 @@ async function updateTodo(req) {
   todo.title = sanitize(todo.title)
   todo.text = sanitize(todo.text)
   todo.updated = new Date().toISOString()
-  console.log('UPDATE: ', todo)
 
   if (accountId) {
     const table = `todos-${accountId}`

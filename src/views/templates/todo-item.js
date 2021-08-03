@@ -1,11 +1,16 @@
 export default function TodoItem(state={}, html) {
-  const { created, key, title, text } = state
+  const { completed=false, created, key, title, text } = state
   return `
 <li>
   <form
     action="/todos/${key}"
     method="POST"
   >
+    <input
+      type="checkbox"
+      name="completed"
+      ${completed ? 'checked="checked"' : ''}
+      >
     <input
       name="text"
       placeholder="${text}"
@@ -32,7 +37,7 @@ export default function TodoItem(state={}, html) {
       name="key"
       value="${key}"
       >
-    <button>␡</button>
+    <button>🗑</button>
   </form>
 </li>
 `

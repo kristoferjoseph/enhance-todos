@@ -1,11 +1,7 @@
-export default function TodosList(state={}) {
+export default function TodosList(state={}, html) {
   const todos = state.todos || []
-  const items = todos.map(todo => `
-  <todo-item
-    created="${todo.created}"
-    key="${todo.key}"
-    text="${todo.text || ''}"
-  ></todo-item>
+  const items = todos.map(todo => html`
+  <todo-item ...${todo}></todo-item>
 `).join('')
 
   return `
