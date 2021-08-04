@@ -23,6 +23,7 @@ export default function TodosPage(state={}, html) {
        method="POST"
       >
         <input
+         autofocus
          name="text"
          type="text"
          placeholder="Enter your todo"
