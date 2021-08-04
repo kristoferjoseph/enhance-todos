@@ -6,17 +6,21 @@ export default function TodoItem(state={}, html) {
     action="/todos/${key}"
     method="POST"
   >
+    <label for="completed">
     <input
       type="checkbox"
       name="completed"
       ${completed ? 'checked="checked"' : ''}
       >
+    </label>
+    <label for="text">
     <input
       name="text"
       placeholder="${text}"
       type="text"
       value="${text}"
       >
+    </label>
       <input
         type="hidden"
         name="key"
