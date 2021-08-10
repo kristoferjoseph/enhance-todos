@@ -14,7 +14,7 @@ async function listTodos(req) {
   const account = session.account || {}
   const accountId = account.id
 
-  if (accountId) {
+  // if (accountId) {
     const table = `todos-${accountId}`
     const pages = await data.get({
       table,
@@ -42,6 +42,7 @@ async function listTodos(req) {
       },
       body
     }
+  /*
   }
   else {
     return {
@@ -49,4 +50,5 @@ async function listTodos(req) {
       location: '/'
     }
   }
+  */
 }

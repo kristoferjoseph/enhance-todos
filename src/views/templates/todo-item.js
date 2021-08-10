@@ -1,6 +1,17 @@
 export default function TodoItem(state={}, html) {
-  const { completed=false, created, key, title, text } = state
-  return `
+  const {
+    completed=false,
+    created='',
+    key='',
+    text=''
+  } = state
+  return html`
+<style>
+  li {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
 <li>
   <form
     action="/todos/${key}"
@@ -15,6 +26,7 @@ export default function TodoItem(state={}, html) {
     </label>
     <label for="text">
     <input
+      id="item-text"
       name="text"
       placeholder="${text}"
       type="text"
@@ -31,7 +43,6 @@ export default function TodoItem(state={}, html) {
         name="created"
         value="${created}"
         >
-        <button>💾</button>
   </form>
   <form
     action="/todos/delete"
