@@ -1,7 +1,10 @@
 {
-  "util.css": "util-bf3f34a49e.css",
   "components/login-page.js": "components/login-page-eb546a8eaa.js",
-  "components/todo-item.js": "components/todo-item-d0f9b6a32e.js",
-  "components/todos-list.js": "components/todos-list-69c3a0e963.js",
-  "components/todos-page.js": "components/todos-page-3984c75736.js"
+  "components/todo-item.js": "components/todo-item-8a91236018.js",
+  "components/todos-header.js": "components/todos-header-f56c65855f.js",
+  "components/todos-list.js": "components/todos-list-57a3bdcee3.js",
+  "components/todos-page.js": "components/todos-page-e5dedaf7c6.js",
+  "data/api.js": "data/api-d8667650f3.js",
+  "data/store.js": "data/store-0ddfae51a7.js",
+  "data/worker.js": "data/worker-3974052c50.js"
 }

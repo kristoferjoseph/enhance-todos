@@ -1,6 +1,7 @@
 const arc = require('@architect/functions')
 const data = require('@begin/data')
 const sanitize = require('xss')
+const isXHR = require('@architect/shared/is-xhr')
 
 exports.handler = arc.http.async(updateTodo)
 
@@ -16,17 +17,28 @@ async function updateTodo(req) {
 
   if (accountId) {
     const table = `todos-${accountId}`
-    await data.set({
+    const newTodo = await data.set({
       table,
       ...todo
     })
-  }
 
-  return {
-    statusCode: 302,
-    headers: {
-      location: '/',
-      'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+    if (isXHR(req)) {
+      return {
+        statusCode: 200,
+        headers: {
+          'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+        },
+        body: JSON.stringify(newTodo)
+      }
+    }
+  }
+  else {
+    return {
+      statusCode: 302,
+      headers: {
+        location: '/',
+        'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+      }
     }
   }
 }

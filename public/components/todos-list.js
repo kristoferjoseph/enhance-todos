@@ -1,32 +1,30 @@
 class TodosList extends HTMLElement {
   constructor() {
     super()
+    const template = document.getElementById('todos-list-template')
+    this.attachShadow({ mode: 'open' })
+      .appendChild(template.content.cloneNode(true))
     this.update = this.update.bind(this)
-    this.list = this.querySelector('ul')
   }
 
-  update(state={}) {
-    console.log('UPDATE: ', state)
+  update(todos) {
+    const items = todos.map(t => `
+    <todo-item
+      text="${t.text}"
+      completed="${t.completed}"
+      created="${t.created}"
+      key="${t.key}"
+    ></todo-item>
+  `).join('')
+    this.innerHTML = items
   }
 
   connectedCallback() {
     console.log('TodosList mounted')
-    this.list = this.querySelector('ul')
   }
 
-  static get observedAttributes() {
-    return [
-      'todos'
-    ]
-  }
-
-  attributeChangedCallback(name, o, n) {
-    console
-    if(name === 'todos') {
-      if (o !== n) {
-        this.update({ todos: n })
-      }
-    }
+  set todos(value=[]) {
+    this.update(value)
   }
 
 }

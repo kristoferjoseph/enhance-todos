@@ -15,46 +15,30 @@ export default function TodosPage(state={}, html) {
 
   const areCompleted = completedTodos.length > 0
   return html`
-  <style>
-    :root {
-      font-family: sans-serif;
-    }
-    div {
-      margin: 0 auto;
-      max-width: 30rem;
-    }
-    #text-input {
-      width: 100%;
-    }
-  </style>
+<div class="middle">
   <todos-header></todos-header>
-  <div>
 
-    <form
-     action="/todos"
-     method="POST"
+  <form
+   class="js-form"
+   action="/todos"
+   method="POST"
+  >
+    <input
+     class="js-text-input"
+     autofocus
+     name="text"
+     type="text"
+     placeholder="Enter your todo"
     >
-      <input
-       id="text-input"
-       autofocus
-       name="text"
-       type="text"
-       placeholder="Enter your todo"
-      >
-    </form>
-      <todos-list>
-        ${activeTodos}
-      </todos-list>
+  </form>
+  <todos-list class='js-active-todos'>
+    ${activeTodos}
+  </todos-list>
 
-      ${areCompleted
-        ? html`
-        <h3>Completed</h3>
-        <todos-list>
-          ${completedTodos}
-        </todos-list>
-         `
-        : ''
-      }
-  </div>
+  <h3>Completed</h3>
+  <todos-list class='js-completed-todos'>
+    ${completedTodos}
+  </todos-list>
+</div>
 `
 }
