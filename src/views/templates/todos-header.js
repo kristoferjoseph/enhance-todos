@@ -7,9 +7,9 @@ export default function TodosHeader(state={}, html) {
      action="/logout"
      method="POST"
     >
-      <button>
-        Logout
-      </button>
+    <button>
+      Logout
+    </button>
     </form>
   </div>
 </header>

@@ -33,6 +33,7 @@ class TodosPage extends HTMLElement {
     if (this.isConnected) {
       this.textInput.focus()
     }
+
   }
 
   handleSubmit (e) {

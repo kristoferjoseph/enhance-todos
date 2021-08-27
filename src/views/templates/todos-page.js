@@ -1,18 +1,18 @@
-export default function TodosPage(state = {}, html) {
-  const todos = state.todos || [];
+export default function TodosPage(state={}, html) {
+  const todos = state.todos || []
   const todoItem = (todo) =>
     html`
 <todo-item ...${todo}></todo-item>
-  `;
+  `
   const activeTodos = todos
     .filter((t) => !t.completed)
     .map((t) => todoItem(t))
-    .join("");
+    .join('')
 
   const completedTodos = todos
     .filter((t) => t.completed)
     .map((t) => todoItem(t))
-    .join("");
+    .join('')
 
   return html`
 <!-- HACK: this tells enhance to include the todo-item template -->

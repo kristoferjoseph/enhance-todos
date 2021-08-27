@@ -1,4 +1,4 @@
-export default function LoginPage (state = {}) {
+export default function LoginPage(state={}) {
   const { href } = state
   return `
 <a href="${href}">

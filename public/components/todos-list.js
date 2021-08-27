@@ -1,14 +1,14 @@
 class TodosList extends HTMLElement {
-  constructor () {
+  constructor() {
     super()
     const template = document.getElementById('todos-list-template')
     this.attachShadow({ mode: 'open' })
       .appendChild(template.content.cloneNode(true))
     this.update = this.update.bind(this)
-    this.list = this.shadowRoot.querySelector('js-list')
+    this.list = this.shadowRoot.querySelector('.js-list')
   }
 
-  update (todos) {
+  update(todos) {
     const items = todos.map(t => `
     <todo-item
       text="${t.text}"
@@ -17,10 +17,10 @@ class TodosList extends HTMLElement {
       key="${t.key}"
     ></todo-item>
   `).join('')
-    this.shadowRoot.innerHTML = items
+    this.list.innerHTML = items
   }
 
-  set todos (value = []) {
+  set todos(value=[]) {
     this.update(value)
   }
 
