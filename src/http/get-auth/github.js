@@ -1,10 +1,10 @@
 const tiny = require('tiny-json-http')
 
-module.exports = async function github(req) {
+module.exports = async function github (req) {
   try {
     let result = await tiny.post({
       url: 'https://github.com/login/oauth/access_token',
-      headers: {Accept: 'application/json'},
+      headers: { Accept: 'application/json' },
       data: {
         code: req.query.code,
         client_id: process.env.GITHUB_CLIENT_ID,
@@ -28,7 +28,8 @@ module.exports = async function github(req) {
       url: user.body.url,
       avatar: user.body.avatar_url
     }
-  } catch (err) {
+  }
+  catch (err) {
     return {
       error: err.message
     }

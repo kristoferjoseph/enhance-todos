@@ -4,7 +4,7 @@ const isXHR = require('@architect/shared/is-xhr')
 
 exports.handler = arc.http.async(deleteTodo)
 
-async function deleteTodo(req) {
+async function deleteTodo (req) {
   const session = req.session || {}
   const account = session.account || {}
   const accountId = account.id

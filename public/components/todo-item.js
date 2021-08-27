@@ -1,7 +1,7 @@
 import API from '../data/api.js'
 
 class TodoItem extends HTMLElement {
-  constructor() {
+  constructor () {
     super()
     const template = document.getElementById('todo-item-template')
     this.attachShadow({ mode: 'open' })
@@ -19,7 +19,7 @@ class TodoItem extends HTMLElement {
     this.destroyForm.addEventListener('submit', this.handleDestroy)
   }
 
-  attributeChangedCallback(name, o, n) {
+  attributeChangedCallback (name, o, n) {
     if (o !== n) {
       if (name === 'text') {
         this.textInput.value = n
@@ -41,18 +41,18 @@ class TodoItem extends HTMLElement {
     }
   }
 
-  connectedCallback() {
+  connectedCallback () {
   }
 
-  get text() {
+  get text () {
     return this.getAttribute('text')
   }
 
-  set text(value='') {
+  set text (value = '') {
     return this.setAttribute('text', value)
   }
 
-  static get observedAttributes() {
+  static get observedAttributes () {
     return [
       'completed',
       'created',
@@ -61,7 +61,7 @@ class TodoItem extends HTMLElement {
     ]
   }
 
-  handleUpdate(e) {
+  handleUpdate (e) {
     e.preventDefault()
     try {
       this.api.update(
@@ -72,12 +72,12 @@ class TodoItem extends HTMLElement {
         )
       )
     }
-    catch(err) {
+    catch (err) {
       console.error(err)
     }
   }
 
-  handleDestroy(e) {
+  handleDestroy (e) {
     e.preventDefault()
     try {
       this.api.destroy(
@@ -88,7 +88,7 @@ class TodoItem extends HTMLElement {
         )
       )
     }
-    catch(err) {
+    catch (err) {
       console.error(err)
     }
   }

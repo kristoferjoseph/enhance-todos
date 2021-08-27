@@ -1,17 +1,11 @@
-export default function TodoItem(state={}, html) {
+export default function TodoItem (state = {}, html) {
   const {
-    completed=false,
-    created='',
-    key='',
-    text=''
+    completed = false,
+    created = '',
+    key = '',
+    text = ''
   } = state
   return html`
-<style>
-  li {
-    display: flex;
-    justify-content: space-between;
-  }
-</style>
 <li>
   <form
     class="js-update"

@@ -5,7 +5,7 @@ const isXHR = require('@architect/shared/is-xhr')
 
 exports.handler = arc.http.async(updateTodo)
 
-async function updateTodo(req) {
+async function updateTodo (req) {
   const session = req.session || {}
   const account = session.account || {}
   const accountId = account.id

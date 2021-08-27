@@ -5,7 +5,7 @@ const isXHR = require('@architect/shared/is-xhr')
 
 exports.handler = arc.http.async(createTodo)
 
-async function createTodo(req) {
+async function createTodo (req) {
   const session = req.session || {}
   const account = session.account || {}
   const accountId = account.id
@@ -29,7 +29,8 @@ async function createTodo(req) {
         },
         body: JSON.stringify(newTodo)
       }
-    } else {
+    }
+    else {
       return {
         statusCode: 302,
         headers: {

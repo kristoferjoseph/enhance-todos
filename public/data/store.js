@@ -3,15 +3,15 @@ const dirtyProps = []
 const listeners = []
 const set = window &&
   window.requestAnimationFrame
-    ? window.requestAnimationFrame
-    : setTimeout
+  ? window.requestAnimationFrame
+  : setTimeout
 const cancel = window &&
   window.cancelAnimationFrame
   ? window.cancelAnimationFrame
   : clearTimeout
 let timeout
 const handler = {
-  set: function(obj, prop, value) {
+  set: function (obj, prop, value) {
     if (prop === 'initialize' ||
         prop === 'subscribe' ||
         prop === 'unsubscribe') {
@@ -34,7 +34,7 @@ _state.subscribe = subscribe
 _state.unsubscribe = unsubscribe
 const store = new Proxy(_state, handler)
 
-export default function Store(initialState) {
+export default function Store (initialState) {
   if (initialState) {
     initialize(initialState)
   }
@@ -51,7 +51,7 @@ function merge (o, n) {
  * Function for initializing store with existing data
  * @param {object} initialState - object to be merged with internal state
  */
-function initialize(initialState) {
+function initialize (initialState) {
   if (initialState) {
     merge(_state, initialState)
   }
@@ -63,7 +63,7 @@ function initialize(initialState) {
  * @param {array} props - list props to listen to for changes
  * @return {number} returns current number of listeners
  */
-function subscribe(fn, props) {
+function subscribe (fn, props) {
   fn.observedProperties = props || []
   return listeners.push(fn)
 }
@@ -73,21 +73,21 @@ function subscribe(fn, props) {
  * @param {function} fn - function to unsubscribe from state updates
  *
  */
-function unsubscribe(fn) {
+function unsubscribe (fn) {
   return listeners.splice(listeners.indexOf(fn), 1)
 }
 
-function notify() {
+function notify () {
   listeners.forEach(fn => {
     let props = fn.observedProperties
     let payload = props.length
       ? dirtyProps
-          .filter(key => props.includes(key))
-          .reduce((obj, key) => {
-            return {
-              ...obj,
-              [key]: _state[key]
-            }
+        .filter(key => props.includes(key))
+        .reduce((obj, key) => {
+          return {
+            ...obj,
+            [key]: _state[key]
+          }
         }, {})
       : { ..._state }
     fn(payload)

@@ -8,7 +8,7 @@ const html = Enhance({
 
 exports.handler = arc.http.async(readTodo)
 
-async function readTodo(req) {
+async function readTodo (req) {
   const session = req.session || {}
   const account = session.account || {}
   const accountId = account.id

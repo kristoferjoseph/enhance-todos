@@ -1,9 +1,9 @@
 const arc = require('@architect/functions')
 exports.handler = arc.http.async(index)
 
-async function index(req) {
-  const { session={} } = req
-  const { account={} } = session
+async function index (req) {
+  const { session = {} } = req
+  const { account = {} } = session
   const { id: accountId } = account
 
   if (accountId) {
@@ -11,7 +11,8 @@ async function index(req) {
       statusCode: 302,
       location: '/todos'
     }
-  } else {
+  }
+  else {
     return {
       statusCode: 302,
       location: '/login'

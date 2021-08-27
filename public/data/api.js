@@ -26,19 +26,19 @@ export default function API() {
 function mutate(e) {
   const { data } = e
   const { result, type } = data
-  switch(type) {
-    case CREATE:
-      createMutation(result)
-      break
-    case UPDATE:
-      updateMutation(result)
-      break
-    case DESTROY:
-      destroyMutation(result)
-      break
-    case LIST:
-      listMutation(result)
-      break
+  switch (type) {
+  case CREATE:
+    createMutation(result)
+    break
+  case UPDATE:
+    updateMutation(result)
+    break
+  case DESTROY:
+    destroyMutation(result)
+    break
+  case LIST:
+    listMutation(result)
+    break
   }
 }
 
@@ -64,6 +64,7 @@ function listMutation(result) {
   store.initialize({ todos: result || [] })
 }
 
+
 function create(todo) {
   worker.postMessage({
     type: CREATE,
@@ -71,20 +72,20 @@ function create(todo) {
   })
 }
 
-function destroy(todo) {
+function destroy (todo) {
   worker.postMessage({
     type: DESTROY,
     data: todo
   })
 }
 
-function list() {
+function list () {
   worker.postMessage({
     type: LIST
   })
 }
 
-function update(todo) {
+function update (todo) {
   worker.postMessage({
     type: UPDATE,
     data: todo

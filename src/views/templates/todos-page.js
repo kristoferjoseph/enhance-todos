@@ -1,20 +1,22 @@
-export default function TodosPage(state={}, html) {
-  const todos = state.todos || []
-  const todoItem = todo => html`
+export default function TodosPage(state = {}, html) {
+  const todos = state.todos || [];
+  const todoItem = (todo) =>
+    html`
 <todo-item ...${todo}></todo-item>
-  `
+  `;
   const activeTodos = todos
-    .filter(t => !t.completed)
-    .map(t => todoItem(t))
-    .join('')
+    .filter((t) => !t.completed)
+    .map((t) => todoItem(t))
+    .join("");
 
   const completedTodos = todos
-    .filter(t => t.completed)
-    .map(t => todoItem(t))
-    .join('')
+    .filter((t) => t.completed)
+    .map((t) => todoItem(t))
+    .join("");
 
-  const areCompleted = completedTodos.length > 0
   return html`
+<!-- HACK: this tells enhance to include the todo-item template -->
+<todo-item style="display:none"></todo-item>
 <div class="middle">
   <todos-header></todos-header>
 
@@ -31,6 +33,7 @@ export default function TodosPage(state={}, html) {
      placeholder="Enter your todo"
     >
   </form>
+
   <todos-list class='js-active-todos'>
     ${activeTodos}
   </todos-list>

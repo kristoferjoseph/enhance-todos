@@ -1,6 +1,6 @@
 require = require('esm')(module) // eslint-disable-line
 const Enhance = require('@begin/enhance').default
-const { http, static } = require('@architect/functions')
+const { http } = require('@architect/functions')
 const data = require('@begin/data')
 const html = Enhance({
   templates: '@architect/views/templates',
@@ -10,7 +10,7 @@ const isXHR = require('@architect/shared/is-xhr')
 
 exports.handler = http.async(listTodos)
 
-async function listTodos(req) {
+async function listTodos (req) {
   const session = req.session || {}
   const account = session.account || {}
   const accountId = account.id

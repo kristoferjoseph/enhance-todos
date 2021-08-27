@@ -1,9 +1,9 @@
 class LoginPage extends HTMLElement {
-  constructor() {
+  constructor () {
     super()
   }
 
-  connectedCallback() {
+  connectedCallback () {
     console.log('LoginPage mounted')
   }
 

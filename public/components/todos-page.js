@@ -1,7 +1,7 @@
 import API from '../data/api.js'
 
 class TodosPage extends HTMLElement {
-  constructor() {
+  constructor () {
     super()
     this.api = API()
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -13,23 +13,29 @@ class TodosPage extends HTMLElement {
     this.form.addEventListener('submit', this.handleSubmit)
   }
 
-  connectedCallback() {
+  connectedCallback () {
     this.api.list()
     this.api.subscribe(this.update, [ 'todos' ])
+    if (this.isConnected) {
+      this.textInput.focus()
+    }
   }
 
-  disconnectedCallback() {
+  disconnectedCallback () {
     this.api.unsubscribe(this.update)
   }
 
-  update({ todos }) {
+  update ({ todos }) {
     const activeTodos = todos.filter(t => !t.completed)
     const completedTodos = todos.filter(t => t.completed)
     this.activeTodosList.todos = activeTodos
     this.completedTodosList.todos = completedTodos
+    if (this.isConnected) {
+      this.textInput.focus()
+    }
   }
 
-  handleSubmit(e) {
+  handleSubmit (e) {
     e.preventDefault()
     try {
       this.api.create(
@@ -41,7 +47,7 @@ class TodosPage extends HTMLElement {
       )
       this.textInput.value = ''
     }
-    catch(err) {
+    catch (err) {
       console.error(err)
     }
   }

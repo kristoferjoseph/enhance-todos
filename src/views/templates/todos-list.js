@@ -1,4 +1,4 @@
-export default function TodosList(state={}, html) {
+export default function TodosList(state, html) {
   return html`
 <ul>
   <slot></slot>

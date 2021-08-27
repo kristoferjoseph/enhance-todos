@@ -3,7 +3,7 @@ const github = require('./github')
 
 exports.handler = arc.http.async(auth)
 
-async function auth(req) {
+async function auth (req) {
   let { query: { code } } = req
   if (code) {
     try {
@@ -13,7 +13,7 @@ async function auth(req) {
         location: '/todos'
       }
     }
-    catch(err) {
+    catch (err) {
       return {
         statusCode: err.code,
         body: err.message
