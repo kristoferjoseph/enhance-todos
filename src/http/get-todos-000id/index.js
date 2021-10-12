@@ -1,12 +1,13 @@
 require = require('esm')(module) // eslint-disable-line
 const arc = require('@architect/functions')
 const data = require('@begin/data')
+const auth = require('@architect/shared/auth')
 const Enhance = require('@begin/enhance').default
 const html = Enhance({
   templates: '@architect/views/templates'
 })
 
-exports.handler = arc.http.async(readTodo)
+exports.handler = arc.http.async(auth, readTodo)
 
 async function readTodo (req) {
   const session = req.session || {}
@@ -14,8 +15,11 @@ async function readTodo (req) {
   const accountId = account.id
   const pathParameters = req.pathParameters || {}
   const todoId = pathParameters.id
+  /*
+  // TODO: Add todo edit form
   const edit = req.query &&
     req.query.edit === 'true'
+  */
 
   if (accountId) {
     const table = `todos-${accountId}`
@@ -49,6 +53,7 @@ async function readTodo (req) {
       'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
       'content-type': 'text/html; charset=utf8'
     },
+    // TODO: Return todo view in read or edit mode
     body: html`TODO: ${todoId}`
   }
 }

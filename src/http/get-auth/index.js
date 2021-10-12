@@ -4,13 +4,13 @@ const github = require('./github')
 exports.handler = arc.http.async(auth)
 
 async function auth (req) {
-  let { query: { code } } = req
+  const { query: { code } } = req
   if (code) {
     try {
-      let account = await github(req)
+      const account = await github(req)
       return {
         session: { account },
-        location: '/todos'
+        location: '/'
       }
     }
     catch (err) {
@@ -22,6 +22,7 @@ async function auth (req) {
   }
   else {
     return {
+      statusCode: 302,
       location: '/'
     }
   }
