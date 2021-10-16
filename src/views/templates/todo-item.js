@@ -1,4 +1,4 @@
-export default function TodoItem (state = {}, html) {
+module.exports = function TodoItem (state = {}, html) {
   const {
     completed = false,
     created = '',

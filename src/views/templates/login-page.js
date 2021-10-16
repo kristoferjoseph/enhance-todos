@@ -1,4 +1,4 @@
-export default function LoginPage(state={}) {
+module.exports = function LoginPage(state={}) {
   const { href } = state
   return `
 <a href="${href}">
@@ -6,5 +6,8 @@ export default function LoginPage(state={}) {
     Login with GitHub
   </button>
 </a>
+<pre><code>
+  ${href}
+</code></pre>
 `
 }

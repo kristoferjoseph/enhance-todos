@@ -1,4 +1,4 @@
-export default function MainPage (state = {}) {
+module.exports = function MainPage (state = {}) {
   const { title = 'Main Page' } = state
   return `
 <h1>

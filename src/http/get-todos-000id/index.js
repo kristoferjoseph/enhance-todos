@@ -1,8 +1,7 @@
-require = require('esm')(module) // eslint-disable-line
 const arc = require('@architect/functions')
 const data = require('@begin/data')
 const auth = require('@architect/shared/auth')
-const Enhance = require('@begin/enhance').default
+const Enhance = require('@begin/enhance')
 const html = Enhance({
   templates: '@architect/views/templates'
 })

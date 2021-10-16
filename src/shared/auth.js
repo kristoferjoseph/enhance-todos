@@ -1,9 +1,7 @@
 const isXHR = require('./is-xhr')
 
 module.exports = async function auth(req) {
-  const accountID = req.session &&
-    req.session.account &&
-    req.session.account.id
+  const accountID = req.session?.account?.id
 
   if (!accountID) {
     if (isXHR(req)) {

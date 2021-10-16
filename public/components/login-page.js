@@ -4,7 +4,6 @@ class LoginPage extends HTMLElement {
   }
 
   connectedCallback () {
-    console.log('LoginPage mounted')
   }
 
 }

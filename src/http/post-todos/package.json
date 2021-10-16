@@ -10,8 +10,8 @@
   "author": "kj <kj@begin.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@architect/functions": "^3.14.1",
-    "@begin/data": "^2.0.1",
-    "xss": "^1.0.9"
+    "@architect/functions": "^4.0.0",
+    "@begin/data": "^3.0.3",
+    "xss": "^1.0.10"
   }
 }

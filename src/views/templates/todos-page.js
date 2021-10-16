@@ -1,4 +1,4 @@
-export default function TodosPage(state={}, html) {
+module.exports = function TodosPage(state={}, html) {
   const todos = state.todos || []
   const todoItem = (todo) =>
     html`

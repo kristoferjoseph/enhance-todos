@@ -8,7 +8,6 @@ class TodosHeader extends HTMLElement {
   }
 
   connectedCallback () {
-    console.log('TodosHeader mounted')
   }
 }
 
