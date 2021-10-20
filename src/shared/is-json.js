@@ -1,4 +1,4 @@
-module.exports = function isXHR (req) {
+module.exports = function isJSON(req) {
   let contentType = req.headers['Content-Type'] ||
     req.headers['content-type']
 

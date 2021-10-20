@@ -1,12 +1,12 @@
-module.exports = function ErrorPage(state={}) {
+module.exports = function ErrorPage(state={}, html) {
   const { error } = state
-  return `
-<h1>Error</h1>
+  return html`
+<h1>Oops, something went wrong 😕</h1>
 <p>
   ${error.message}
 </p>
 <pre><code>
-${JSON.stringify(err, null, 2)}
+${JSON.stringify(error, null, 2)}
 </code></pre>
 `
 }

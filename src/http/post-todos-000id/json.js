@@ -1,15 +1,15 @@
-const isXHR = require('@architect/shared/is-xhr')
-const deleteTodo = require('./delete-todo.js')
+const isJSON = require('@architect/shared/is-json')
+const updateTodo = require('./update-todo.js')
 
-module.exports = async function XHR(req) {
-  if (isXHR(req)) {
+module.exports = async function json(req) {
+  if (isJSON(req)) {
     try {
-      const key = deleteTodo(req)
+      const key = updateTodo(req)
       return {
         statusCode: 200,
         headers: {
           'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
-          'content-type': 'text/html; charset=utf8'
+          'content-type': 'application/json; charset=utf8'
         },
         body: JSON.stringify({ key })
       }
@@ -19,7 +19,7 @@ module.exports = async function XHR(req) {
         statusCode: 500,
         headers: {
           'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
-          'content-type': 'text/html; charset=utf8'
+          'content-type': 'application/json; charset=utf8'
         },
         body: JSON.stringify({ error: err.message })
       }

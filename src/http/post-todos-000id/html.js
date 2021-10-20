@@ -1,4 +1,4 @@
-const deleteTodo = require('./delete-todo')
+const updateTodo = require('./update-todo')
 const Enhance = require('@begin/enhance')
 const html = Enhance({
   templates: '@architect/views/templates',
@@ -7,7 +7,7 @@ const html = Enhance({
 
 module.exports = function HTML(req) {
   try {
-    deleteTodo(req)
+    await updateTodo(req)
     return {
       statusCode: 302,
       headers: {

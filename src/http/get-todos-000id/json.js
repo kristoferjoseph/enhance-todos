@@ -1,26 +1,26 @@
-const isXHR = require('@architect/shared/is-xhr')
-const getTodos = require('./todos')
+const readTodo = require('./read-todo')
+const isJSON = require('@architect/shared/is-json')
 
-module.exports = async function XHR(req) {
-  if (isXHR(req)) {
+module.exports = async function json(req) {
+  if (isJSON(req)) {
     try {
-      const todos = await getTodos(req)
+      const todo = await readTodo(req)
 
       return {
         statusCode: 200,
         headers: {
           'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
-          'content-type': 'text/html; charset=utf8'
+          'content-type': 'application/json; charset=utf8'
         },
-        body: JSON.stringify(todos)
+        body: JSON.stringify(todo)
       }
     }
-    catch (err) {
+    catch(err) {
       return {
         statusCode: 500,
         headers: {
           'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0',
-          'content-type': 'text/html; charset=utf8'
+          'content-type': 'application/json; charset=utf8'
         },
         body: JSON.stringify({ error: err.message })
       }

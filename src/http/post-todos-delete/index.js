@@ -1,6 +1,6 @@
 const arc = require('@architect/functions')
-const xhr = require('./xhr')
+const json = require('./json')
 const html = require('./html')
 const auth = require('@architect/shared/auth')
 
-exports.handler = arc.http.async(auth, xhr, html)
+exports.handler = arc.http.async(auth, json, html)

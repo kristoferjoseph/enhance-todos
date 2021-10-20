@@ -10,6 +10,7 @@
   "license": "Apache-2.0",
   "description": "",
   "dependencies": {
-    "@architect/functions": "^4.0.0"
+    "@architect/functions": "^4.0.0",
+    "tiny-json-http": "^7.3.1"
   }
 }

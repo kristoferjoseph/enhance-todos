@@ -2,21 +2,21 @@ const arc = require('@architect/functions')
 const data = require('@begin/data')
 const sanitize = require('xss')
 
-module.exports = async function createTodo(req) {
+module.exports = function UpdateTodo(req) {
   const session = req.session || {}
   const account = session.account || {}
   const accountId = account.id
   const todo = arc.http.helpers.bodyParser(req)
-  todo.created = new Date().toISOString()
   todo.title = sanitize(todo.title)
   todo.text = sanitize(todo.text)
+  todo.updated = new Date().toISOString()
+  const table = `todos-${accountId}`
   try {
-    const table = `todos-${accountId}`
-    const newTodo = await data.set({
+    const updatedTodo = await data.set({
       table,
       ...todo
     })
-    return newTodo
+    return updatedTodo
   }
   catch (err) {
     session.error = err.message
