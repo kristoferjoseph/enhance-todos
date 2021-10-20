@@ -11,6 +11,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@architect/functions": "^4.0.0",
-    "@begin/enhance": "^1.0.0"
+    "@begin/enhance": "^1.1.1"
   }
 }

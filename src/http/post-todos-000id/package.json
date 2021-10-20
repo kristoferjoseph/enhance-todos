@@ -12,6 +12,7 @@
   "dependencies": {
     "@architect/functions": "^4.0.0",
     "@begin/data": "^3.0.3",
+    "@begin/enhance": "^1.1.1",
     "xss": "^1.0.10"
   }
 }

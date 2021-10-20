@@ -2,7 +2,7 @@ const arc = require('@architect/functions')
 const data = require('@begin/data')
 const sanitize = require('xss')
 
-module.exports = function UpdateTodo(req) {
+module.exports = async function UpdateTodo(req) {
   const session = req.session || {}
   const account = session.account || {}
   const accountId = account.id

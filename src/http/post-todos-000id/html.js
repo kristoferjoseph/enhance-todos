@@ -5,7 +5,7 @@ const html = Enhance({
   modules: '_static/components'
 })
 
-module.exports = function HTML(req) {
+module.exports = async function HTML(req) {
   try {
     await updateTodo(req)
     return {

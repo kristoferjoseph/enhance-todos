@@ -4,7 +4,7 @@ const href = `https://github.com/login/oauth/authorize?client_id=${clientID}`
 const Enhance = require('@begin/enhance')
 const html = Enhance({
   templates: '@architect/views/templates',
-  modules: '_static/components'
+  modules: 'components'
 })
 
 exports.handler = arc.http.async(login)

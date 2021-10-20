@@ -2,7 +2,7 @@ const getTodos = require('./todos')
 const Enhance = require('@begin/enhance')
 const html = Enhance({
   templates: '@architect/views/templates',
-  modules: '_static/components'
+  modules: 'components'
 })
 
 module.exports = async function HTML(req) {
