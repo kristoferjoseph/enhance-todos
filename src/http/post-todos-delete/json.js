@@ -1,10 +1,10 @@
 const isJSON = require('@architect/shared/is-json')
 const deleteTodo = require('./delete-todo.js')
 
-module.exports = async function JSON(req) {
+module.exports = async function json(req) {
   if (isJSON(req)) {
     try {
-      const key = deleteTodo(req)
+      const key = await deleteTodo(req)
       return {
         statusCode: 200,
         headers: {

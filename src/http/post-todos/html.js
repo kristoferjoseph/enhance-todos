@@ -12,12 +12,14 @@ module.exports = async function HTML(req) {
     }
   }
   catch (err) {
+    req.session.error = err.message
+    console.error(err)
     return {
       statusCode: 500,
       headers: {
+        location: '/todos',
         'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
-      },
-      body: JSON.stringify({ error: err })
+      }
     }
   }
 }

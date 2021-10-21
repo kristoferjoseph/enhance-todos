@@ -22,7 +22,6 @@ module.exports = async function readTodo(req) {
     return todo
   }
   catch(err) {
-    session.error = err
     throw err
   }
 }

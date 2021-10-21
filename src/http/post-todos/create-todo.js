@@ -10,17 +10,10 @@ module.exports = async function createTodo(req) {
   todo.created = new Date().toISOString()
   todo.title = sanitize(todo.title)
   todo.text = sanitize(todo.text)
-  try {
-    const table = `todos-${accountId}`
-    const newTodo = await data.set({
-      table,
-      ...todo
-    })
-    return newTodo
-  }
-  catch (err) {
-    session.error = err.message
-    console.error(err.message)
-    throw err
-  }
+  const table = `todos-${accountId}`
+  const newTodo = await data.set({
+    table,
+    ...todo
+  })
+  return newTodo
 }

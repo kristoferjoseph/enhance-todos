@@ -1,9 +1,15 @@
 module.exports = function TodosPage(state={}, html) {
-  const todos = state.todos || []
+  const { error, todos=[] } = state
   const todoItem = (todo) =>
     html`
 <todo-item ...${todo}></todo-item>
   `
+  const errorItem = error => `
+<h1>Oops, something went wrong 😕</h1>
+<p>
+  ${error}
+</p>
+    `
   const activeTodos = todos
     .filter((t) => !t.completed)
     .map((t) => todoItem(t))
@@ -19,6 +25,8 @@ module.exports = function TodosPage(state={}, html) {
 <todo-item style="display:none"></todo-item>
 <div class="middle">
   <todos-header></todos-header>
+
+  ${error ? errorItem(error) : '' }
 
   <form
    class="js-form"

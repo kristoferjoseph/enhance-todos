@@ -1,9 +1,5 @@
 const readTodo = require('./read-todo')
-const Enhance = require('@begin/enhance')
-const html = Enhance({
-  templates: '@architect/views/templates',
-  modules: 'components'
-})
+const html = require('@begin/enhance')()
 
 module.exports = async function HTML(req) {
   try {

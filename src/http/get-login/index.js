@@ -1,11 +1,7 @@
 const arc = require('@architect/functions')
 const clientID = process.env.GITHUB_CLIENT_ID
 const href = `https://github.com/login/oauth/authorize?client_id=${clientID}`
-const Enhance = require('@begin/enhance')
-const html = Enhance({
-  templates: '@architect/views/templates',
-  modules: 'components'
-})
+const html = require('@begin/enhance')()
 
 exports.handler = arc.http.async(login)
 

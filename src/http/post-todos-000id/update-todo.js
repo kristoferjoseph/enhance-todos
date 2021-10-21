@@ -11,16 +11,9 @@ module.exports = async function UpdateTodo(req) {
   todo.text = sanitize(todo.text)
   todo.updated = new Date().toISOString()
   const table = `todos-${accountId}`
-  try {
-    const updatedTodo = await data.set({
-      table,
-      ...todo
-    })
-    return updatedTodo
-  }
-  catch (err) {
-    session.error = err.message
-    console.error(err.message)
-    throw err
-  }
+  const updatedTodo = await data.set({
+    table,
+    ...todo
+  })
+  return updatedTodo
 }
