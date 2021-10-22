@@ -15,7 +15,7 @@ module.exports = async function HTML(req) {
     req.session.error = err.message
     console.error(err)
     return {
-      statusCode: 500,
+      statusCode: 302,
       headers: {
         location: '/todos',
         'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'

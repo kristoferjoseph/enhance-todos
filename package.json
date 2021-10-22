@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npx sandbox"
+    "start": "npx sandbox",
+    "build": "npx arc-hydrate"
   },
   "keywords": [],
   "author": "kj <kj@begin.com>",
   "license": "Apache-2.0",
   "dependencies": {
     "@architect/eslint-config": "^2.0.0-RC.1",
+    "@architect/hydrate": "^2.0.4",
     "@architect/sandbox": "^4.2.1"
   },
   "devDependencies": {
