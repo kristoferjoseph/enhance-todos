@@ -1,9 +1,4 @@
-let manifest
-try {
-  manifest = require('@architect/shared/static.json')
-}
-catch(err) {
-}
+const manifest = require('@architect/shared/static.json')
 const STATIC_ROOT = '_static'
 
 module.exports = function fingerprintedFilePath(rootRelativeAssetPath) {
