@@ -4,6 +4,7 @@ ftds-001
 @static
 fingerprint true
 spa false
+ignore public/build
 
 @http
 get /
@@ -15,6 +16,7 @@ post /logout
 post /todos/delete  # destroy
 post /todos/:id     # update
 post /todos         # create
+get /_bundle/*
 
 @tables
 data
