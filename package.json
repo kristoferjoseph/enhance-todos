@@ -15,6 +15,7 @@
     "@architect/sandbox": "^4.2.1"
   },
   "devDependencies": {
+    "@architect/architect": "^9.1.0",
     "tape": "^5.2.2"
   }
 }
