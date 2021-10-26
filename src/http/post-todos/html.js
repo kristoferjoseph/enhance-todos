@@ -6,8 +6,7 @@ module.exports = async function HTML(req) {
     return {
       statusCode: 302,
       headers: {
-        location: '/todos',
-        'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+        location: '/todos'
       }
     }
   }
@@ -17,8 +16,7 @@ module.exports = async function HTML(req) {
     return {
       statusCode: 302,
       headers: {
-        location: '/todos',
-        'cache-control': 'no-cache, no-store, must-revalidate, max-age=0, s-maxage=0'
+        location: '/todos'
       }
     }
   }
