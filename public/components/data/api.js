@@ -49,7 +49,7 @@ function createMutation(result) {
 }
 
 function updateMutation(result) {
-  let copy = store.todos.slice()
+  const copy = store.todos.slice()
   copy.splice(copy.findIndex(i => i.key === result.key), 1, result)
   store.todos = copy
 }

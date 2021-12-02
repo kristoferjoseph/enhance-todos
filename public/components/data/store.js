@@ -79,8 +79,8 @@ function unsubscribe (fn) {
 
 function notify () {
   listeners.forEach(fn => {
-    let props = fn.observedProperties
-    let payload = props.length
+    const props = fn.observedProperties
+    const payload = props.length
       ? dirtyProps
         .filter(key => props.includes(key))
         .reduce((obj, key) => {

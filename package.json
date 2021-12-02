@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npx sandbox",
+    "start": "ARC_TABLES_PORT=5555 npx sandbox",
     "build": "npx arc-hydrate"
   },
   "keywords": [],
@@ -12,10 +12,9 @@
   "dependencies": {
     "@architect/eslint-config": "^2.0.0-RC.1",
     "@architect/hydrate": "^2.0.4",
-    "@architect/sandbox": "^4.2.1"
+    "@architect/sandbox": "^4.4.2"
   },
   "devDependencies": {
-    "@architect/architect": "^9.1.0",
     "tape": "^5.2.2"
   }
 }
