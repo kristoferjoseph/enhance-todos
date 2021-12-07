@@ -17,10 +17,10 @@ class TodosList extends HTMLElement {
   update(todos) {
     const items = todos.map(t => \`
     <todo-item
-      text="\$\{t.text\}"
-      \$\{t.completed ? \`completed="\$\{t.completed}"\` : ''\}
-      created="\$\{t.created\}"
-      key="\$\{t.key\}"
+      text="\${t.text}"
+      \${t.completed ? \`completed="\${t.completed}"\` : ''}
+      created="\${t.created}"
+      key="\${t.key}"
     ></todo-item>
   \`).join('')
     this.list.innerHTML = items
