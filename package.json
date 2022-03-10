@@ -10,11 +10,17 @@
   "author": "kj <kj@begin.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@architect/eslint-config": "^2.0.0-RC.1",
+    "@architect/functions": "^4.1.1",
     "@architect/hydrate": "^2.0.4",
-    "@architect/sandbox": "^4.4.2"
+    "@begin/data": "^3.0.4",
+    "@begin/enhance": "^2.1.0",
+    "tiny-json-http": "^7.3.1",
+    "xss": "^1.0.10"
   },
   "devDependencies": {
+    "@architect/eslint-config": "^2.0.1",
+    "@architect/sandbox": "^4.4.2",
+    "tap-arc": "^0.1.1",
     "tape": "^5.2.2"
   }
 }
