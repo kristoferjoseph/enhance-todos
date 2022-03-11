@@ -2,7 +2,7 @@ import arc from '@architect/functions'
 import data from '@begin/data'
 import sanitize from 'xss'
 
-export const handler = async function UpdateTodo(req) {
+export default async function UpdateTodo(req) {
   const session = req.session || {}
   const account = session.account || {}
   const accountId = account.id

@@ -1,6 +1,6 @@
-import deleteTodo from './delete-todo'
+import deleteTodo from './delete-todo.mjs'
 
-export const handler = function HTML(req) {
+export default function html(req) {
   try {
     deleteTodo(req)
     return {

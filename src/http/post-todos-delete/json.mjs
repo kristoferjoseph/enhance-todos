@@ -1,7 +1,7 @@
-import isJSON     from '@architect/shared/is-json.mjs'
+import isJSON from '@architect/shared/is-json.mjs'
 import deleteTodo from './delete-todo.mjs'
 
-export const handler = async function json(req) {
+export default async function json(req) {
   if (isJSON(req)) {
     try {
       const key = await deleteTodo(req)

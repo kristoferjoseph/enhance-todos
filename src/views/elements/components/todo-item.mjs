@@ -57,7 +57,7 @@ export default function TodoItem({ html, state={} }) {
   </form>
 </li>
 <script type="module">
-import API from '/components/data/api.js'
+import API from '/components/data/api.mjs'
 
 class TodoItem extends HTMLElement {
   constructor () {

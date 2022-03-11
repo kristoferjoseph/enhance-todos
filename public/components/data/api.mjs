@@ -1,4 +1,4 @@
-import Store from '/components/data/store.js'
+import Store from '/components/data/store.mjs'
 const store = Store()
 
 const CREATE = 'create'
@@ -9,7 +9,7 @@ const LIST = 'list'
 let worker
 export default function API() {
   if (!worker) {
-    worker = new Worker('/components/data/worker.js')
+    worker = new Worker('/components/data/worker.mjs')
     worker.onmessage = mutate
   }
 

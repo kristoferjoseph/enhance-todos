@@ -1,6 +1,6 @@
 import fingerprintedFilePath from './fingerprinted-file-path.mjs'
 
-export const handler = async function http (req) {
+export const handler = async function http(req) {
   const requestedFile = req.requestContext.http.path
   const fingerprinted = fingerprintedFilePath(requestedFile)
   return {

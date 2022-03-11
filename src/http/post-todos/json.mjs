@@ -1,7 +1,7 @@
 import isJSON from '@architect/shared/is-json.mjs'
-import createTodo from './create-todo'
+import createTodo from './create-todo.mjs'
 
-export const handler = async function json(req) {
+export default async function json(req) {
   if (isJSON(req)) {
     try {
       const newTodo = await createTodo(req)

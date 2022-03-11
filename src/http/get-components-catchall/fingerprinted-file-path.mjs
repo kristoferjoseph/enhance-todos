@@ -1,4 +1,5 @@
-import manifest from '@architect/shared/static.json'
+import { readFileSync } from 'fs'
+const manifest = JSON.parse(readFileSync('./node_modules/@architect/shared/static.json', 'utf8'))
 const STATIC_ROOT = '_static'
 
 export default function fingerprintedFilePath(rootRelativeAssetPath) {

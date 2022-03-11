@@ -1,6 +1,6 @@
 import createTodo from './create-todo.mjs'
 
-export const handler = async function HTML(req) {
+export default async function html(req) {
   try {
     await createTodo(req)
     return {

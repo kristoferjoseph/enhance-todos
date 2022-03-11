@@ -68,7 +68,7 @@ export default function TodosPage({ html, state={} }) {
 </div>
 
   <script type="module">
-  import API from '/components/data/api.js'
+  import API from '/components/data/api.mjs'
 
   class TodosPage extends HTMLElement {
     constructor () {

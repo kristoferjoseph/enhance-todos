@@ -1,6 +1,6 @@
 import updateTodo from './update-todo.mjs'
 
-export const handler = async function HTML(req) {
+export default async function HTML(req) {
   try {
     await updateTodo(req)
     return {
