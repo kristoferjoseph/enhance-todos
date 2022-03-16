@@ -5,6 +5,7 @@ export default function TodoItem({ html, state={} }) {
     key = '',
     text = ''
   } = state
+
   return html`
 <li>
   <form

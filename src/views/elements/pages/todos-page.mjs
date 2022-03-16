@@ -36,8 +36,6 @@ export default function TodosPage({ html, state={} }) {
     .join('')
 
   return html`
-<!-- HACK: this tells enhance to include the todo-item template -->
-<todo-item style="display:none"></todo-item>
 <div class="middle">
   <todos-header></todos-header>
 
