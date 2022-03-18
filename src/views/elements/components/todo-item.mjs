@@ -1,10 +1,11 @@
 export default function TodoItem({ html, state={} }) {
+  const { attrs } = state
   const {
     completed = false,
     created = '',
     key = '',
     text = ''
-  } = state
+  } = attrs
 
   return html`
 <li>
@@ -91,7 +92,7 @@ class TodoItem extends HTMLElement {
         this.createdInput.value = n
       }
       if (name === 'completed') {
-        if (n === 'undefined') {
+        if (n === 'undefined' || n === '') {
           this.completedInput.removeAttribute('checked')
         }
         else {
