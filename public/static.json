@@ -1,11 +1,6 @@
 {
-  "components/login-page.js": "components/login-page-b81ef6fbcd.js",
-  "components/todo-item.js": "components/todo-item-5d3c184d1d.js",
-  "components/todos-header.js": "components/todos-header-09fab1f5f4.js",
-  "components/todos-list.js": "components/todos-list-9c102b2830.js",
-  "components/todos-page.js": "components/todos-page-ef2fec1a41.js",
-  "components/data/api.js": "components/data/api-83ef7889c1.js",
-  "components/data/socket.js": "components/data/socket-8414288cdc.js",
-  "components/data/store.js": "components/data/store-1c2f83a5ee.js",
-  "components/data/worker.js": "components/data/worker-0c354eef54.js"
+  "components/data/api.mjs": "components/data/api-49a49a15e1.mjs",
+  "components/data/socket.mjs": "components/data/socket-8414288cdc.mjs",
+  "components/data/store.mjs": "components/data/store-1c2f83a5ee.mjs",
+  "components/data/worker.mjs": "components/data/worker-0c354eef54.mjs"
 }
