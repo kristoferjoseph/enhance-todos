@@ -13,7 +13,7 @@ export default function TodoItem({ html, state={} }) {
     class="js-update"
     action="/todos/${key}"
     method="POST"
-    >
+  >
     <label for="completed">
     <input
       class="js-completed"
