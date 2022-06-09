@@ -1,4 +1,3 @@
-/* global self fetch */
 const CREATE = 'create'
 const UPDATE = 'update'
 const DESTROY = 'destroy'

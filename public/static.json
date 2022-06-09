@@ -1,6 +1,6 @@
 {
-  "components/data/api.mjs": "components/data/api-49a49a15e1.mjs",
-  "components/data/socket.mjs": "components/data/socket-8414288cdc.mjs",
-  "components/data/store.mjs": "components/data/store-1c2f83a5ee.mjs",
-  "components/data/worker.mjs": "components/data/worker-0c354eef54.mjs"
+  "api.mjs": "api-34575c1e8f.mjs",
+  "socket.mjs": "socket-8414288cdc.mjs",
+  "store.mjs": "store-1c2f83a5ee.mjs",
+  "worker.mjs": "worker-abad0367e1.mjs"
 }

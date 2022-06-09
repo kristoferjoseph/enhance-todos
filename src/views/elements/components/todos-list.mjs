@@ -4,6 +4,8 @@ export default function TodosList({ html }) {
   <slot></slot>
 </ul>
 <script type="module">
+import todoItem from '/_bundles/todo-item-browser.mjs'
+
 class TodosList extends HTMLElement {
   constructor() {
     super()
@@ -15,14 +17,7 @@ class TodosList extends HTMLElement {
   }
 
   update(todos) {
-    const items = todos.map(t => \`
-    <todo-item
-      text="\${t.text}"
-      \${t.completed ? \`completed="\${t.completed}"\` : ''}
-      created="\${t.created}"
-      key="\${t.key}"
-    ></todo-item>
-  \`).join('')
+    const items = todos.map(state => todoItem({ state })).join('')
     this.list.innerHTML = items
   }
 

@@ -59,15 +59,17 @@ export default function TodoItem({ html, state={} }) {
   </form>
 </li>
 <script type="module">
-import API from '/components/data/api.mjs'
+import API from '/_bundles/api.mjs'
+import BaseElement from '/_bundles/base-element.mjs'
+import Store from '/_bundles/store.mjs'
 
-class TodoItem extends HTMLElement {
+class TodoItem extends BaseElement {
   constructor () {
     super()
-    const template = document.getElementById('todo-item-template')
-    this.attachShadow({ mode: 'open' })
-      .appendChild(template.content.cloneNode(true))
-    this.api = API()
+    this.api = API({
+      store: Store(),
+      worker: new Worker('__WORKER_SCRIPT_URL__')
+    })
     this.handleUpdate = this.handleUpdate.bind(this)
     this.handleDestroy = this.handleDestroy.bind(this)
     this.completedInput = this.shadowRoot.querySelector('.js-completed')

@@ -66,12 +66,16 @@ export default function TodosPage({ html, state={} }) {
 </div>
 
   <script type="module">
-  import API from '/components/data/api.mjs'
+  import API from '/_bundles/api.mjs'
+  import Store from '/_bundles/store.mjs'
 
   class TodosPage extends HTMLElement {
     constructor () {
       super()
-      this.api = API()
+      this.api = API({
+        store: Store(),
+        worker: new Worker('__WORKER_SCRIPT_URL__')
+      })
       this.handleSubmit = this.handleSubmit.bind(this)
       this.update = this.update.bind(this)
       this.form = this.querySelector('.js-form')

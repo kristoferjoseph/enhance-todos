@@ -1,8 +1,13 @@
 import getTodos from './todos.mjs'
+import map from '@architect/views/_bundles/map.mjs'
 import enhance from '@enhance/ssr'
+import importTransform from '@architect/shared/import-transform.mjs'
 import elements from '@architect/views/elements/elements.mjs'
+import Head from '@architect/views/document/head.mjs'
+
 const html = enhance({
-  elements
+  elements,
+  scriptTransforms: [importTransform({ map })],
 })
 
 export default async function HTML(req) {
@@ -17,8 +22,10 @@ export default async function HTML(req) {
       headers: {
         'content-type': 'text/html; charset=utf8'
       },
-      body: html`<todos-page todos="${todos}" error="${error}"></todos-page>`
-
+      body: html`
+      ${Head()}
+      <todos-page todos="${todos}" error="${error}"></todos-page>
+      `
     }
   }
   catch (err) {
@@ -27,7 +34,10 @@ export default async function HTML(req) {
       headers: {
         'content-type': 'text/html; charset=utf8'
       },
-      body: html`<error-page error=${err}></error-page>`
+      body: html`
+      ${Head()}
+      <error-page error=${err}></error-page>
+      `
     }
   }
 }

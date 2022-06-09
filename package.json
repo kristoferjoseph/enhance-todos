@@ -11,14 +11,17 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@architect/functions": "^5.0.4",
+    "@architect/plugin-bundles": "^1.1.1",
     "@begin/data": "^4.0.0",
-    "@enhance/ssr": "^2.0.3",
+    "@enhance/base-element": "^1.0.0",
+    "@enhance/import-transform": "^1.0.1",
+    "@enhance/ssr": "^2.3.1",
     "tiny-json-http": "^7.3.1",
     "xss": "^1.0.10"
   },
   "devDependencies": {
-    "@architect/architect": "^10.1.0",
-    "@architect/sandbox": "^5.2.0",
+    "@architect/architect": "^10.3.3",
+    "@architect/sandbox": "^5.2.5",
     "tap-arc": "^0.1.2",
     "tape-es": "^1.2.17"
   }
