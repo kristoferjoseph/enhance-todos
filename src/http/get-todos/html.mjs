@@ -1,13 +1,15 @@
-import getTodos from './todos.mjs'
-import map from '@architect/views/_bundles/map.mjs'
+import arc from '@architect/functions'
 import enhance from '@enhance/ssr'
-import importTransform from '@architect/shared/import-transform.mjs'
 import elements from '@architect/views/elements/elements.mjs'
+import getTodos from './todos.mjs'
 import Head from '@architect/views/document/head.mjs'
+import importTransform from '@enhance/import-transform'
 
 const html = enhance({
   elements,
-  scriptTransforms: [importTransform({ map })],
+  scriptTransforms: [
+    importTransform({ lookup: arc.static })
+  ],
 })
 
 export default async function HTML(req) {

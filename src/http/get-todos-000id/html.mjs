@@ -1,8 +1,11 @@
 import readTodo  from './read-todo.mjs'
 import enhance from '@enhance/ssr'
 import elements from '@architect/views/elements/elements.mjs'
+import map from '@architect/bundles/map.mjs'
+import importTransform from '@architect/shared/import-transform.mjs'
 const html = enhance({
-  elements
+  elements,
+  scriptTransforms: [importTransform({ map })],
 })
 
 export const handler = async function HTML(req) {

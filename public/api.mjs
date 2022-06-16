@@ -1,10 +1,22 @@
 import Store from './store.mjs'
+
 const CREATE = 'create'
 const UPDATE = 'update'
 const DESTROY = 'destroy'
 const LIST = 'list'
 
-export default function API({ store, worker }) {
+let worker
+let store
+export default function API({ initialState={}, workerURL }) {
+  if (!store) {
+    store = initialState
+      ? Store(initialState)
+      : Store()
+  }
+
+  if (!worker) {
+    worker = new Worker(workerURL)
+  }
 
   worker.onmessage = function mutate(e) {
     const { data } = e
@@ -47,7 +59,6 @@ export default function API({ store, worker }) {
   function listMutation(result) {
     store.initialize({ todos: result || [] })
   }
-
 
   function create(todo) {
     worker.postMessage({

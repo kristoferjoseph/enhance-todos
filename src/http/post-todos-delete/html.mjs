@@ -1,8 +1,8 @@
 import deleteTodo from './delete-todo.mjs'
 
-export default function html(req) {
+export default async function html(req) {
   try {
-    deleteTodo(req)
+    await deleteTodo(req)
     return {
       statusCode: 302,
       headers: {

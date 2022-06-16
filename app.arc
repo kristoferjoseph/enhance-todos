@@ -6,7 +6,6 @@ fingerprint true
 spa false
 
 @http
-get /_bundles/*
 get /
 get /auth
 get /login
@@ -24,10 +23,10 @@ data
   ttl TTL
 
 
-# @plugins
-# architect/plugin-bundles
+@plugins
+architect/plugin-bundles
 
-# @bundles
-# base-element '/node_modules/@enhance/base-element/index.mjs'
-# api '/public/api.mjs'
-# 'todo-item-browser' '/src/views/elements/browser/todo-item.mjs'
+@bundles
+api '/public/api.mjs'
+base-element '/node_modules/@enhance/base-element/index.mjs'
+todo-item '/src/views/elements/browser/todo-item.mjs'

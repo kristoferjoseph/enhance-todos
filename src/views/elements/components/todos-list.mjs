@@ -4,20 +4,20 @@ export default function TodosList({ html }) {
   <slot></slot>
 </ul>
 <script type="module">
-import todoItem from '/_bundles/todo-item-browser.mjs'
+import TodoItem from '/_static/bundles/todo-item.mjs'
 
 class TodosList extends HTMLElement {
   constructor() {
     super()
-    const template = document.getElementById('todos-list-template')
-    this.attachShadow({ mode: 'open' })
-      .appendChild(template.content.cloneNode(true))
     this.update = this.update.bind(this)
-    this.list = this.shadowRoot.querySelector('.js-list')
+    this.list = this.querySelector('.js-list')
+  }
+
+  connectedCallback() {
   }
 
   update(todos) {
-    const items = todos.map(state => todoItem({ state })).join('')
+    const items = todos.map(state => TodoItem({ state })).join('')
     this.list.innerHTML = items
   }
 

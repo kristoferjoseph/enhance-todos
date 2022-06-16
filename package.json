@@ -11,11 +11,12 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@architect/functions": "^5.0.4",
-    "@architect/plugin-bundles": "^1.1.1",
+    "@architect/plugin-bundles": "^3.0.0",
     "@begin/data": "^4.0.0",
     "@enhance/base-element": "^1.0.0",
-    "@enhance/import-transform": "^1.0.1",
-    "@enhance/ssr": "^2.3.1",
+    "@enhance/import-transform": "^3.0.0",
+    "@enhance/ssr": "^2.3.3",
+    "@enhance/store": "^1.0.0",
     "tiny-json-http": "^7.3.1",
     "xss": "^1.0.10"
   },

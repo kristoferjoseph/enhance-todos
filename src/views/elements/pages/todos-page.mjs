@@ -65,32 +65,29 @@ export default function TodosPage({ html, state={} }) {
   </todos-list>
 </div>
 
-  <script type="module">
-  import API from '/_bundles/api.mjs'
-  import Store from '/_bundles/store.mjs'
+<script type="module">
+  import API from '/_static/api.mjs'
+  const workerURL = '__WORKER_SCRIPT_URL__'
 
   class TodosPage extends HTMLElement {
     constructor () {
       super()
-      this.api = API({
-        store: Store(),
-        worker: new Worker('__WORKER_SCRIPT_URL__')
-      })
-      this.handleSubmit = this.handleSubmit.bind(this)
-      this.update = this.update.bind(this)
+      this.api = API({ workerURL })
       this.form = this.querySelector('.js-form')
       this.textInput = this.querySelector('.js-text-input')
       this.activeTodosList = this.querySelector('.js-active-todos')
       this.completedTodosList = this.querySelector('.js-completed-todos')
+
+      this.handleSubmit = this.handleSubmit.bind(this)
+      this.update = this.update.bind(this)
+
       this.form.addEventListener('submit', this.handleSubmit)
+      this.textInput.focus()
     }
 
     connectedCallback () {
       this.api.list()
       this.api.subscribe(this.update, [ 'todos' ])
-      if (this.isConnected) {
-        this.textInput.focus()
-      }
     }
 
     disconnectedCallback () {

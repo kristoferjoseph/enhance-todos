@@ -10,8 +10,7 @@ export default function TodoItem({ html, state={} }) {
   return html`
 <li>
   <form
-    class="js-update"
-    action="/todos/${key}"
+    class="js-update" action="/todos/${key}"
     method="POST"
   >
     <label for="completed">
@@ -58,28 +57,30 @@ export default function TodoItem({ html, state={} }) {
     <button>🗑</button>
   </form>
 </li>
-<script type="module">
-import API from '/_bundles/api.mjs'
-import BaseElement from '/_bundles/base-element.mjs'
-import Store from '/_bundles/store.mjs'
 
-class TodoItem extends BaseElement {
+<script type="module">
+import API from '/_static/bundles/api.mjs'
+const workerURL = '__WORKER_SCRIPT_URL__'
+
+class TodoItem extends HTMLElement {
   constructor () {
     super()
-    this.api = API({
-      store: Store(),
-      worker: new Worker('__WORKER_SCRIPT_URL__')
-    })
+    const template = document.getElementById('todo-item-template')
+    this.replaceChildren(template.content.cloneNode(true))
+    this.api = API({ workerURL })
     this.handleUpdate = this.handleUpdate.bind(this)
     this.handleDestroy = this.handleDestroy.bind(this)
-    this.completedInput = this.shadowRoot.querySelector('.js-completed')
-    this.textInput = this.shadowRoot.querySelector('.js-text')
-    this.keyInputs = this.shadowRoot.querySelectorAll('.js-key')
-    this.createdInput = this.shadowRoot.querySelector('.js-created')
-    this.updateForm = this.shadowRoot.querySelector('.js-update')
-    this.destroyForm = this.shadowRoot.querySelector('.js-destroy')
+    this.completedInput = this.querySelector('.js-completed')
+    this.textInput = this.querySelector('.js-text')
+    this.keyInputs = this.querySelectorAll('.js-key')
+    this.createdInput = this.querySelector('.js-created')
+    this.updateForm = this.querySelector('.js-update')
+    this.destroyForm = this.querySelector('.js-destroy')
     this.updateForm.addEventListener('submit', this.handleUpdate)
     this.destroyForm.addEventListener('submit', this.handleDestroy)
+  }
+
+  connectedCallback() {
   }
 
   attributeChangedCallback (name, o, n) {

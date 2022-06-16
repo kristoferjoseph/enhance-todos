@@ -1,6 +1,12 @@
 {
-  "api.mjs": "api-34575c1e8f.mjs",
+  ".gitignore": ".gitignore-35e8277cc9",
+  "api.mjs": "api-698c830cb8.mjs",
+  "base-element.mjs": "base-element-7688fe2621.mjs",
   "socket.mjs": "socket-8414288cdc.mjs",
   "store.mjs": "store-1c2f83a5ee.mjs",
-  "worker.mjs": "worker-abad0367e1.mjs"
+  "todo-item.mjs": "todo-item-06b4433ab9.mjs",
+  "worker.mjs": "worker-abad0367e1.mjs",
+  "bundles/api.mjs": "bundles/api-ab03ed4f68.mjs",
+  "bundles/base-element.mjs": "bundles/base-element-7688fe2621.mjs",
+  "bundles/todo-item.mjs": "bundles/todo-item-06b4433ab9.mjs"
 }
